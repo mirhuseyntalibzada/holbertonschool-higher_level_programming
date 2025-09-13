@@ -1,0 +1,90 @@
+This is the doctest for the matrix_divided module.
+It tests the function `matrix_divided(matrix, div)`.
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+# Test with a standard 2x3 matrix and an integer divisor
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+# Test that the original matrix is not modified
+>>> matrix
+[[1, 2, 3], [4, 5, 6]]
+
+# Test with a floating-point divisor
+>>> matrix_divided(matrix, 1.5)
+[[0.67, 1.33, 2.0], [2.67, 3.33, 4.0]]
+
+# Test with a negative divisor
+>>> matrix_divided(matrix, -2)
+[[-0.5, -1.0, -1.5], [-2.0, -2.5, -3.0]]
+
+# Test with a matrix containing floats and negative numbers
+>>> float_matrix = [[-3.3, 6.6], [9.9, -12.12]]
+>>> matrix_divided(float_matrix, 3.3)
+[[-1.0, 2.0], [3.0, -3.67]]
+
+# Test with a single-element matrix
+>>> matrix_divided([[10]], 2)
+[[5.0]]
+
+# Test with a single-row matrix
+>>> matrix_divided([[10, 20, 30, 40]], 10)
+[[1.0, 2.0, 3.0, 4.0]]
+
+# Test with a single-column matrix
+>>> matrix_divided([[1], [2], [3]], 4)
+[[0.25], [0.5], [0.75]]
+
+# Test with a matrix of zeros
+>>> matrix_divided([[0, 0], [0, 0]], 5)
+[[0.0, 0.0], [0.0, 0.0]]
+
+# Test ZeroDivisionError
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
+
+# Test TypeError for a non-numeric divisor
+>>> matrix_divided(matrix, "div")
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
+
+# Test TypeError for a matrix with non-numeric elements
+>>> matrix_divided([[1, 2], [3, "4"]], 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test TypeError for rows of different sizes
+>>> matrix_divided([[1, 2, 3], [4, 5]], 2)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
+
+# Test TypeError for input that is not a matrix (a string)
+>>> matrix_divided("this is not a matrix", 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test TypeError for a list of non-lists
+>>> matrix_divided([1, 2, 3], 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test TypeError for an empty matrix
+>>> matrix_divided([], 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Test TypeError for a matrix with an empty row
+>>> matrix_divided([[]], 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
