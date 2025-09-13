@@ -40,6 +40,18 @@
 >>> add_integer(9999999999, 1)
 10000000000
 
+# Test float overflow (very large float)
+>>> add_integer(1e100, 1e100)
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+# Test NaN (Not a Number)
+>>> add_integer(float('nan'), 5)
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
+
 # Test non-numeric types that should raise TypeErrors
 >>> add_integer(4, "School")
 Traceback (most recent call last):
