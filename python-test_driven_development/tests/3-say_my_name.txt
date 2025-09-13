@@ -1,0 +1,54 @@
+This is the doctest for the say_my_name module.
+It tests the function `say_my_name(first_name, last_name="")`.
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Test with first and last name provided
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+# Test with only the first name provided
+>>> say_my_name("Walter", "White")
+My name is Walter White
+
+# Test with only one name (last name defaults to "")
+>>> say_my_name("Bob")
+My name is Bob 
+
+# Test with an empty string for the last name
+>>> say_my_name("Alice", "")
+My name is Alice 
+
+# Test with an empty string for the first name
+>>> say_my_name("", "Johnson")
+My name is  Johnson
+
+# Test TypeError for a non-string first_name
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+# Test TypeError for a non-string last_name
+>>> say_my_name("John", 12)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+# Test TypeError with another non-string type (list)
+>>> say_my_name("Peter", ["Griffin"])
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+# Test with both arguments as non-strings
+>>> say_my_name(1, 2)
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+# Test with no arguments
+>>> say_my_name()
+Traceback (most recent call last):
+    ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
