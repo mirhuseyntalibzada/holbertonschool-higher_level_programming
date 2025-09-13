@@ -19,21 +19,15 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    # Use a flag to know when to skip leading spaces on a new line
     skip_spaces = True
     for char in text:
-        # If we are in "skip mode" and the character is a space, ignore it
         if skip_spaces and char == ' ':
             continue
-        
-        # If we encounter any other character, turn off "skip mode"
+
         skip_spaces = False
-        
-        # Print the character without a newline
+
         print(char, end="")
-        
-        # If the character is a delimiter, print two newlines
-        # and turn "skip mode" back on for the next line.
+
         if char in ".?:":
-            print("\n") # print() adds one \n, the "\n" character is the second.
+            print("\n")
             skip_spaces = True
