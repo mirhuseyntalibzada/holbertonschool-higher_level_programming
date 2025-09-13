@@ -8,4 +8,3 @@ def delete_at(my_list=[], idx=0):
 
     my_list[:] = my_list[:-1]
     return my_list
-
