@@ -44,14 +44,17 @@ This sentence has no special characters
 # Test with a string containing only spaces
 >>> text_indentation("   ")
 
-# Test with consecutive delimiters
+# Test with consecutive delimiters (the logical output)
 >>> text_indentation("Wait... what?!")
-Wait..
+Wait.
 <BLANKLINE>
 .
 <BLANKLINE>
-what?!
+.
 <BLANKLINE>
+what?
+<BLANKLINE>
+!
 
 # Test TypeError for a non-string input (integer)
 >>> text_indentation(123)
