@@ -1,0 +1,75 @@
+This is the doctest for the print_square module.
+It tests the function `print_square(size)`.
+
+>>> print_square = __import__('4-print_square').print_square
+
+# Test with a standard positive integer
+>>> print_square(4)
+####
+####
+####
+####
+
+# Test with a larger integer
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+# Test with size = 1
+>>> print_square(1)
+#
+
+# Test with size = 0, should print nothing
+>>> print_square(0)
+
+# Test ValueError for a negative integer
+>>> print_square(-1)
+Traceback (most recent call last):
+    ...
+ValueError: size must be >= 0
+
+# Test TypeError for a float
+>>> print_square(3.14)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test TypeError for a negative float.
+# The prompt specifies: "if size is a float and is less than 0, raise a TypeError"
+# This check should happen before the value check.
+>>> print_square(-5.5)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test TypeError for a string
+>>> print_square("School")
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test TypeError for None
+>>> print_square(None)
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test TypeError for a list
+>>> print_square([1, 2, 3])
+Traceback (most recent call last):
+    ...
+TypeError: size must be an integer
+
+# Test missing argument
+>>> print_square()
+Traceback (most recent call last):
+    ...
+TypeError: print_square() missing 1 required positional argument: 'size'
