@@ -3,35 +3,34 @@ It tests the function `text_indentation(text)`.
 
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 
-# Basic test with all delimiters
->>> text_indentation("Hello world. How are you? I am fine: thank you")
-Hello world.
+# Basic test with all delimiters and spaces
+>>> text_indentation("Holberton. School? How are you: John")
+Holberton.
 <BLANKLINE>
+School?
 <BLANKLINE>
-How are you?
+How are you:
 <BLANKLINE>
+John
+
+# Test with no space after a delimiter
+>>> text_indentation("Holberton.School")
+Holberton.
 <BLANKLINE>
-I am fine:
-<BLANKLINE>
-<BLANKLINE>
-thank you
+School
 
 # Test with a delimiter at the end of the string
 >>> text_indentation("This is the end.")
 This is the end.
-<BLANKLINE>
 <BLANKLINE>
 
 # Test with multiple spaces around delimiters
 >>> text_indentation("First.  Second?   Third:    Fourth")
 First.
 <BLANKLINE>
-<BLANKLINE>
 Second?
 <BLANKLINE>
-<BLANKLINE>
 Third:
-<BLANKLINE>
 <BLANKLINE>
 Fourth
 
@@ -40,18 +39,18 @@ Fourth
 This sentence has no special characters
 
 # Test with an empty string
->>> text_tation("")
+>>> text_indentation("")
 
 # Test with a string containing only spaces
 >>> text_indentation("   ")
 
 # Test with consecutive delimiters
 >>> text_indentation("Wait... what?!")
-Wait...
+Wait..
 <BLANKLINE>
+.
 <BLANKLINE>
 what?!
-<BLANKLINE>
 <BLANKLINE>
 
 # Test TypeError for a non-string input (integer)
@@ -66,21 +65,8 @@ Traceback (most recent call last):
     ...
 TypeError: text must be a string
 
-# Test with no space after a delimiter
->>> text_indentation("Test.Test?Test:Test")
-Test.
-<BLANKLINE>
-<BLANKLINE>
-Test?
-<BLANKLINE>
-<BLANKLINE>
-Test:
-<BLANKLINE>
-<BLANKLINE>
-Test
-
-# Test with leading spaces
->>> text_indentation("   Leading spaces.")
+# Test with leading and trailing spaces in the input string
+>>> text_indentation("   Leading spaces. Trailing spaces   ")
 Leading spaces.
 <BLANKLINE>
-<BLANKLINE>
+Trailing spaces

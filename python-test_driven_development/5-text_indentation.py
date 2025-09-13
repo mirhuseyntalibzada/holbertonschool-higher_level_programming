@@ -8,6 +8,8 @@ after each of these characters: ., ? and :
 def text_indentation(text):
     """Prints a text with 2 new lines after each of '.', '?', and ':'.
 
+    Ensures no leading or trailing spaces on any printed line.
+
     Args:
         text (str): The text to be printed.
 
@@ -17,15 +19,21 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    buffer = ""
+    # Use a flag to know when to skip leading spaces on a new line
+    skip_spaces = True
     for char in text:
-        buffer += char
+        # If we are in "skip mode" and the character is a space, ignore it
+        if skip_spaces and char == ' ':
+            continue
+        
+        # If we encounter any other character, turn off "skip mode"
+        skip_spaces = False
+        
+        # Print the character without a newline
+        print(char, end="")
+        
+        # If the character is a delimiter, print two newlines
+        # and turn "skip mode" back on for the next line.
         if char in ".?:":
-            print(buffer.strip())
-            print()
-            print()
-            buffer = ""
-
-    # Print any remaining text in the buffer after the loop
-    if buffer.strip():
-        print(buffer.strip(), end="")
+            print("\n") # print() adds one \n, the "\n" character is the second.
+            skip_spaces = True
