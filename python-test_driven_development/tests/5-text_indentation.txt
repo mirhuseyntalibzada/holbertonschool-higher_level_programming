@@ -1,0 +1,86 @@
+This is the doctest for the text_indentation module.
+It tests the function `text_indentation(text)`.
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Basic test with all delimiters
+>>> text_indentation("Hello world. How are you? I am fine: thank you")
+Hello world.
+<BLANKLINE>
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+<BLANKLINE>
+I am fine:
+<BLANKLINE>
+<BLANKLINE>
+thank you
+
+# Test with a delimiter at the end of the string
+>>> text_indentation("This is the end.")
+This is the end.
+<BLANKLINE>
+<BLANKLINE>
+
+# Test with multiple spaces around delimiters
+>>> text_indentation("First.  Second?   Third:    Fourth")
+First.
+<BLANKLINE>
+<BLANKLINE>
+Second?
+<BLANKLINE>
+<BLANKLINE>
+Third:
+<BLANKLINE>
+<BLANKLINE>
+Fourth
+
+# Test with no delimiters
+>>> text_indentation("This sentence has no special characters")
+This sentence has no special characters
+
+# Test with an empty string
+>>> text_tation("")
+
+# Test with a string containing only spaces
+>>> text_indentation("   ")
+
+# Test with consecutive delimiters
+>>> text_indentation("Wait... what?!")
+Wait...
+<BLANKLINE>
+<BLANKLINE>
+what?!
+<BLANKLINE>
+<BLANKLINE>
+
+# Test TypeError for a non-string input (integer)
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+# Test TypeError for a non-string input (list)
+>>> text_indentation(["a", "b"])
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+# Test with no space after a delimiter
+>>> text_indentation("Test.Test?Test:Test")
+Test.
+<BLANKLINE>
+<BLANKLINE>
+Test?
+<BLANKLINE>
+<BLANKLINE>
+Test:
+<BLANKLINE>
+<BLANKLINE>
+Test
+
+# Test with leading spaces
+>>> text_indentation("   Leading spaces.")
+Leading spaces.
+<BLANKLINE>
+<BLANKLINE>
