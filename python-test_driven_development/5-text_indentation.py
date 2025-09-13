@@ -19,15 +19,13 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    skip_spaces = True
+    buffer = ""
     for char in text:
-        if skip_spaces and char == ' ':
-            continue
-
-        skip_spaces = False
-
-        print(char, end="")
-
+        buffer += char
         if char in ".?:":
-            print("\n")
-            skip_spaces = True
+            print(buffer.strip())
+            print()
+            buffer = ""
+
+    if buffer:
+        print(buffer.strip(), end="")
