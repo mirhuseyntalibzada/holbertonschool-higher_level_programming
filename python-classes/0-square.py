@@ -7,3 +7,4 @@ class Square:
     def __init__(self):
         """Initializes an empty Square instance."""
         pass
+
