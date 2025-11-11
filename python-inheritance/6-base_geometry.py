@@ -1,16 +1,10 @@
 #!/usr/bin/python3
-"""
-This module defines the BaseGeometry class.
-"""
+"""This module contains a BaseGeometry class."""
 
 
-class BaseGeometry:
-    """
-    BaseGeometry class with an unimplemented area() method.
-    """
+class BaseGeometry():
+    """A class that represents a geometric shapes."""
 
     def area(self):
-        """
-        Raise an Exception indicating that area() is not implemented.
-        """
+        """Function that computes the area of the shape"""
         raise Exception("area() is not implemented")

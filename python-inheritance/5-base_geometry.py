@@ -1,11 +1,7 @@
 #!/usr/bin/python3
-"""
-This module defines an empty class BaseGeometry.
-"""
+"""This module contains a BaseGeometry class."""
 
 
-class BaseGeometry:
-    """
-    Empty class BaseGeometry to be extended later.
-    """
+class BaseGeometry():
+    """A class that represents a geometric shapes."""
     pass

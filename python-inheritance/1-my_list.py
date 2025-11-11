@@ -1,20 +1,31 @@
 #!/usr/bin/python3
-"""
-A module to prints a list in ascending order
+"""This script defines a custom list subclass called `MyList`.
+
+`MyList` extends the built-in `list` class by adding a method to print
+the list in a sorted order.
+
+Usage:
+    You can create an instance of `MyList`, add items to it, and then
+    call the `print_sorted()` method to print the items in ascending order.
+
+Example:
+    my_list = MyList([3, 1, 2])
+    my_list.print_sorted()  # Output: [1, 2, 3]
 """
 
 
 class MyList(list):
-    """
-    A class to customize the list class
+    """A subclass of the built-in list class that adds a method to print
+    the list in sorted order.
+
+    Methods:
+        print_sorted(): Prints the list in ascending sorted order.
     """
 
     def print_sorted(self):
-        """
-        Prints a list in ascending order
+        """Prints the list in sorted (ascending) order.
 
-        Sort a list and then prints on the output
+        This method does not modify the original list, it just prints
+        the sorted version of the list.
         """
-
-        if issubclass(MyList, list):
-            print(sorted(self))
+        print(sorted(self))
