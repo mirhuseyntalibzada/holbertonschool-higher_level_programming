@@ -1,0 +1,1 @@
+this folder covers inheritance logic in python.
