@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, "./libs")  
+
 from flask import Flask, render_template
 import json
 
