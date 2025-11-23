@@ -1,0 +1,1 @@
+This folder covers answers for the holberton project: Python - Everything is object
